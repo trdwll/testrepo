@@ -1,7 +1,9 @@
 pipeline {
   agent {
-    label 'Windows'
-    customWorkspace 'UE4PluginDev/Plugins'
+    node {
+      label 'Windows'
+      customWorkspace 'UE4PluginDev/Plugins'
+    }
   }
 
   stages {
