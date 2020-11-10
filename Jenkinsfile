@@ -1,11 +1,11 @@
 pipeline {
-  agent none
+  agent { label 'Windows' }
+
   stages {
     stage('Build') {
       steps {
-        echo 'Building testrepo'
+        sh 'printenv'
       }
     }
-
   }
 }
