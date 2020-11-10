@@ -2,7 +2,7 @@ pipeline {
   agent {
     node {
       label 'Windows'
-      customWorkspace 'UE4PluginDev/Plugins'
+      customWorkspace 'UE4PluginDev/Plugins/testrepo'
     }
   }
 
