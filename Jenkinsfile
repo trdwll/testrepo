@@ -4,13 +4,14 @@ pipeline {
       label 'Windows'
       customWorkspace 'UE4PluginDev/Plugins/testrepo'
     }
-  }
 
+  }
   stages {
-    stage('Build') {
+    stage('Prep') {
       steps {
-        sh 'printenv'
+        bat '../../build-scripts/UE4PluginDev/prep.bat'
       }
     }
+
   }
 }
