@@ -1,7 +1,4 @@
 pipeline {
-  options {
-        disableConcurrentBuilds()
-    }
   agent {
     node {
       label 'Windows'
@@ -16,5 +13,14 @@ pipeline {
       }
     }
 
+    stage('Archive') {
+      steps {
+        archiveArtifacts 'Packaged/**'
+      }
+    }
+
+  }
+  options {
+    disableConcurrentBuilds()
   }
 }
