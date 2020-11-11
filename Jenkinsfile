@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Prep') {
       steps {
-        bat '../../build-scripts/UE4PluginDev/prep.bat'
+        bat 'C:\\build-scripts/UE4PluginDev/prep.bat'
       }
     }
 
