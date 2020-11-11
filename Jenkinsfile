@@ -1,7 +1,4 @@
 pipeline {
-  options {
-        disableConcurrentBuilds()
-    }
   agent {
     node {
       label 'Windows'
@@ -10,23 +7,14 @@ pipeline {
 
   }
   stages {
-    stage('Prep') {
-      steps {
-        bat 'C:\\build-scripts/UE4PluginDev/prep.bat'
-      }
-    }
-
-    stage('Generate') {
-      steps {
-        bat 'C:\\build-scripts/UE4PluginDev/generate.bat'
-      }
-    }
-
     stage('Build') {
       steps {
         bat 'C:\\build-scripts/UE4PluginDev/build.bat'
       }
     }
 
+  }
+  options {
+    disableConcurrentBuilds()
   }
 }
