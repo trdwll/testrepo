@@ -13,12 +13,6 @@ pipeline {
       }
     }
 
-    stage('Archive') {
-      steps {
-        archiveArtifacts 'Packaged/**'
-      }
-    }
-
   }
   options {
     disableConcurrentBuilds()
