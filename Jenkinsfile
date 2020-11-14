@@ -15,16 +15,19 @@ pipeline {
 
     stage('Build Release') {
       steps {
-        bat '"${msbuild}" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+        bat '"${MSBuild}" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat '"${tool \'MSBuild\'}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
+        bat '"${MSBuild}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
       }
     }
 
+  }
+  environment {
+    MSBuild = 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe'
   }
   options {
     disableConcurrentBuilds()
