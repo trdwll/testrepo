@@ -8,8 +8,25 @@ pipeline {
   }
   stages {
     stage('Build') {
-      steps {
-        bat 'C:\\build-scripts/UE4PluginDev/build.bat'
+      parallel {
+        stage('Build') {
+          steps {
+            bat 'C:\\build-scripts/UE4PluginDev/build.bat'
+          }
+        }
+
+        stage('Build Release') {
+          steps {
+            bat '\\"${tool \'MSBuild\'}\\" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+          }
+        }
+
+        stage('Build Debug') {
+          steps {
+            bat '\\"${tool \'MSBuild\'}\\" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
+          }
+        }
+
       }
     }
 
