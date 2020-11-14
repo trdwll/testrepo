@@ -16,7 +16,7 @@ pipeline {
     stage('Build Release') {
       steps {
         tool 'MSBuild'
-        bat '"${tool \'MSBuild\'}" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+        bat '${tool \'MSBuild\'} testr-wfa/testr-wfa.csproj /p:Configuration=Release'
       }
     }
 
