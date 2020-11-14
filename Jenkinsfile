@@ -3,8 +3,6 @@ pipeline {
     node {
       label 'Windows'
       customWorkspace 'UE4PluginDev/testrepo'
-      
-      def msbuild = tool name: 'MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
     }
 
   }
