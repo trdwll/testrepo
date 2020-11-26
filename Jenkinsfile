@@ -7,9 +7,7 @@ pipeline {
     }
 
   }
-  environment {
-   msbuild = tool('MSBuild') 
-  }
+  
   stages {
 
     stage('Build Release') {
@@ -24,5 +22,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+   msbuild = tool('MSBuild') 
   }
 }
