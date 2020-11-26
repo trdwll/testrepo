@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build Release') {
       steps {
-        bat '${msbuild} testr-wfa/testr-wfa.csproj /p:Configuration=Release;Platform=x64'
+        bat '\"${tool 'MSBuild'}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release;Platform=x64'
       }
     }
 
@@ -22,8 +22,5 @@ pipeline {
       }
     }
 
-  }
-  environment {
-   msbuild = tool('MSBuild') 
   }
 }
