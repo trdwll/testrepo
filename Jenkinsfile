@@ -3,7 +3,7 @@ pipeline {
   agent {
     node {
       label 'Windows'
-      customWorkspace 'UE4PluginDev/'
+      customWorkspace 'UE4PluginDev'
     }
 
   }
