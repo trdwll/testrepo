@@ -7,24 +7,22 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
-      steps {
-        bat 'C:\\build-scripts/UE4PluginDev/build.bat'
-      }
-    }
 
     stage('Build Release') {
       steps {
-        bat '"${tool \'MSBuild\'}" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+        bat '"${MSBUILD}" testr-wfa/testr-wfa.csproj /p:Configuration=Release;Platform=x64'
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat '"${tool \'MSBuild\'}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
+        bat '"${MSBUILD}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug;Platform=x64'
       }
     }
 
+  }
+  environment {
+    MSBUILD = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\msbuild.exe"
   }
   options {
     disableConcurrentBuilds()
