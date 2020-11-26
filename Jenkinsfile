@@ -1,7 +1,17 @@
 
+pipeline {
+  agent {
     node {
       label 'Windows'
       customWorkspace 'UE4PluginDev/testrepo'
+    }
+
+  }
+  tools {
+      MsBuild 'MSBuild'
+  }
+
+  stages {
 
     stage('Build Release') {
       steps {
@@ -15,4 +25,8 @@
       }
     }
 
+  }
+  options {
+    disableConcurrentBuilds()
+  }
 }
