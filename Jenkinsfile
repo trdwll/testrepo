@@ -15,13 +15,13 @@ pipeline {
 
     stage('Build Release') {
       steps {
-        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+        bat '${MSBUILD} testr-wfa/testr-wfa.csproj /p:Configuration=Release'
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
+        bat '${MSBUILD} testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
       }
     }
 
