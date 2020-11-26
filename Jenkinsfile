@@ -10,13 +10,13 @@ pipeline {
 
     stage('Build Release') {
       steps {
-        bat '"${MSBUILD}" testr-wfa/testr-wfa.csproj /p:Configuration=Release;Platform=x64'
+        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release;Platform=x64'
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat '"${MSBUILD}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug;Platform=x64'
+        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Debug;Platform=x64'
       }
     }
 
