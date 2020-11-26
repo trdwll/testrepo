@@ -15,19 +15,19 @@ pipeline {
 
     stage('Build Release') {
       steps {
-        bat '"${MSBuild}" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
+        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release'
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat '"${MSBuild}" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
+        bat '\"${MSBUILD}\" testr-wfa/testr-wfa.csproj /p:Configuration=Debug'
       }
     }
 
   }
   environment {
-    MSBuild = 'hudson.plugins.msbuild.MsBuildInstallation'
+    MSBUILD = 'hudson.plugins.msbuild.MsBuildInstallation'
   }
   options {
     disableConcurrentBuilds()
