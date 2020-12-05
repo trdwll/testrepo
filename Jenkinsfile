@@ -8,6 +8,12 @@ pipeline {
   }
   
   stages {
+    
+    stage('Build Release') {
+      steps {
+        bat "python C:\\test.py %WORKSPACE%"
+      }
+    }
 
     stage('Build Release') {
       steps {
