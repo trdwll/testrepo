@@ -9,7 +9,7 @@ pipeline {
   
   stages {
     
-    stage('Build Release') {
+    stage('testdood') {
       steps {
         bat "python C:\\test.py %WORKSPACE%"
       }
