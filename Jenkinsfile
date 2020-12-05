@@ -11,7 +11,7 @@ pipeline {
     
     stage('testdood') {
       steps {
-        bat "python C:\\test.py %WORKSPACE%"
+        bat "py C:\\test.py %WORKSPACE%"
       }
     }
 
