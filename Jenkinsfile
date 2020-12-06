@@ -11,13 +11,13 @@ pipeline {
    
     stage('Build Release') {
       steps {
-        bat "\"${tool 'MSBuild'}\" testr-wfa.csproj /p:Configuration=Release"
+        bat "\"${tool 'MSBuild'}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release"
       }
     }
 
     stage('Build Debug') {
       steps {
-        bat "\"${tool 'MSBuild'}\" testr-wfa.csproj /p:Configuration=Debug"
+        bat "\"${tool 'MSBuild'}\" testr-wfa/testr-wfa.csproj /p:Configuration=Debug"
       }
     }
 
@@ -26,7 +26,7 @@ pipeline {
         branch "main"
       }
       steps {
-        bat "py C:\\jenkins.py test-wfa Publish \"%WORKSPACE%\""
+        bat "py C:\\jenkins.py testr-wfa Publish \"%WORKSPACE%\""
       }
     }
   }
