@@ -1,7 +1,7 @@
 // Some copyright should be here...
 
 using UnrealBuildTool;
-
+-
 public class buildbreaker : ModuleRules
 {
 	public buildbreaker(ReadOnlyTargetRules Target) : base(Target)
