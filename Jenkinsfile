@@ -10,9 +10,9 @@ pipeline {
   stages {
     
     stage('testdood') {
-      when {
+      when { not {
         branch "main"
-      }
+      }}
       steps {
         bat "py C:\\test.py %WORKSPACE%"
       }
