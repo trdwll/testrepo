@@ -8,6 +8,11 @@ pipeline {
   }
   
   stages {
+    stage('Build Plugin') {
+      steps {
+        bat "py -u C:\\jenkins.py buildbreaker Build \"%WORKSPACE%\""
+      }
+    }
    
     stage('Build Release') {
       steps {
