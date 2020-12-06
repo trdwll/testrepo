@@ -26,7 +26,7 @@ pipeline {
         branch "main"
       }
       steps {
-        bat "py C:\\jenkins.py Publish \"%WORKSPACE%\""
+        bat "py C:\\jenkins.py test-wfa Publish \"%WORKSPACE%\""
       }
     }
   }
