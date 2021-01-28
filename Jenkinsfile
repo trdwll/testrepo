@@ -1,4 +1,3 @@
-
 pipeline {
   agent {
     node {
@@ -6,14 +5,13 @@ pipeline {
     }
 
   }
-  
   stages {
     stage('Build Plugin') {
       steps {
-        bat "py -u C:\\jenkins.py buildbreaker Build \"%WORKSPACE%\""
+        bat 'py -u C:\\jenkins.py buildbreaker Build "%WORKSPACE%"'
       }
     }
-   
+
     stage('Build Release') {
       steps {
         bat "\"${tool 'MSBuild'}\" testr-wfa/testr-wfa.csproj /p:Configuration=Release"
@@ -26,13 +24,20 @@ pipeline {
       }
     }
 
-     stage('Publish Release') {
+    stage('Publish Release') {
       when {
-        branch "main"
+        branch 'main'
       }
       steps {
-        bat "py C:\\jenkins.py testr-wfa Publish \"%WORKSPACE%\""
+        bat 'py C:\\jenkins.py testr-wfa Publish "%WORKSPACE%"'
       }
     }
+
+    stage('s') {
+      steps {
+        googleStorageUpload(credentialsId: 'test', bucket: 'bucket', pattern: 'pattern', pathPrefix: 'prefix')
+      }
+    }
+
   }
 }
