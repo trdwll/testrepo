@@ -33,11 +33,5 @@ pipeline {
       }
     }
 
-    stage('s') {
-      steps {
-        googleStorageUpload(credentialsId: 'test', bucket: 'bucket', pattern: 'pattern', pathPrefix: 'prefix', sharedPublicly: true)
-      }
-    }
-
   }
 }
